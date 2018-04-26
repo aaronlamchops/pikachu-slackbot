@@ -10,8 +10,8 @@ respond immediately with a single line response.
 */
 
 var wordfilter = require('wordfilter');
-const Youtube = require('simple-youtube-api');
-const youtube = new YouTube('AIzaSyA0ETLt_agdmMFY56e1Uy8m1frCDuzgPVY');
+var Youtube = require('simple-youtube-api');
+var youtube = new YouTube('AIzaSyA0ETLt_agdmMFY56e1Uy8m1frCDuzgPVY');
 
 
 module.exports = function(controller) {
@@ -141,7 +141,7 @@ module.exports = function(controller) {
         if(message.match[1]) {
             youtube.searchVideos(message.match[1], 4)
                 .then(results => {
-                    bot.reply(message, `https://www.youtube.com/watch?v=${results[0].id}`)
+                    bot.reply(message, 'https://www.youtube.com/watch?v=' + results[0].id);
                     // console.log(`The video's title is ${results[0].id}`);
                 })
                 .catch(console.log);
