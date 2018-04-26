@@ -44,16 +44,41 @@ module.exports = function(controller) {
     });
 
     controller.hears(['^say (.*)','^say'], 'direct_message,direct_mention', function(bot, message) {
-        if (message.match[1]) {
-
-            if (!wordfilter.blacklisted(message.match[1])) {
-                bot.reply(message, message.match[1]);
-            } else {
-                bot.reply(message, '_sigh_');
-            }
-        } else {
-            bot.reply(message, 'I will repeat whatever you say.')
-        }
+        bot.reply(message, yesOrNo[1])
+    });
+  
+  
+  // MY IMPLEMENTATIONS
+  
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }  
+                      // NO                    // NO                     // YES                       // ROCK YES
+    const yesOrNo = ['https://gph.is/1hGfaTl', 'https://gph.is/1sDyjzI', 'https://gph.is/11S8vBb', 'https://gph.is/2bXgHah'];
+  
+    const feelings = ['https://gph.is/1JcmX5S', 'https://gph.is/NdSyj3', 'https://gph.is/1sFtRAB', 'https://gph.is/28Lcsyf', 'https://gph.is/XJ2aVC', 'https://gph.is/1Z6ImrI', 'https://gph.is/XMGrMA'];
+  
+  
+//     controller.hears(['A-aron'], 'direct_message,direct_mention', function(bot, message) {
+//         bot.reply(message, 'He is my Trainer!')
+//     });
+  
+//     controller.hears(['mark'], 'direct_message,direct_mention', function(bot, message) {
+//         bot.reply(message, 'Booooooo to him! \nhttps://gph.is/XJ2aVC')
+//     });
+  
+    controller.hears(['laugh'], 'direct_message,direct_mention', function(bot, message) {
+        bot.reply(message, 'https://gph.is/XJ2aVC')
+    });
+  
+  //  ^question, .+\? REGEX for a 'question, [text]?'
+    controller.hears(['^question, .+\?'], 'direct_message,direct_mention', function(bot, message) {
+        bot.reply(message, yesOrNo[getRandomInt(4)])
+    });
+  
+  // ^What do you think of .+\?
+    controller.hears(['^What do you think of .+\?'], 'direct_message,direct_mention', function(bot, message) {
+        bot.reply(message, feelings[getRandomInt(7)])
     });
 
 
