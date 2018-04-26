@@ -10,6 +10,9 @@ respond immediately with a single line response.
 */
 
 var wordfilter = require('wordfilter');
+const Youtube = require('simple-youtube-api');
+const youtube = new YouTube('AIzaSyA0ETLt_agdmMFY56e1Uy8m1frCDuzgPVY');
+
 
 module.exports = function(controller) {
 
@@ -131,6 +134,21 @@ module.exports = function(controller) {
     // swanson jokes
     controller.hears(['Ron Swanson Advice', 'ron swanson advice', 'Ron Swanson advice', 'Ron swanson advice'], 'direct_message,direct_mention', function(bot, message) {
         bot.reply(message, ronSwanson[getRandomInt(23)])
+    });
+
+    // search youtube for things
+    controller.hears(['^youtube (.*)', '^Youtube (.*)'], 'direct_message,direct_mention', function(bot, message) {
+        if(message.match[1]) {
+            youtube.searchVideos(message.match[1], 4)
+                .then(results => {
+                    bot.reply(message, `https://www.youtube.com/watch?v=${results[0].id}`)
+                    // console.log(`The video's title is ${results[0].id}`);
+                })
+                .catch(console.log);
+        }
+        else {
+            bot.reply(message, 'I will find a video for you');
+        }
     });
 
 
