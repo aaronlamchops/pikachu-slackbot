@@ -10,8 +10,8 @@ respond immediately with a single line response.
 */
 
 var wordfilter = require('wordfilter');
-var Youtube = require('simple-youtube-api');
-var youtube = new YouTube('AIzaSyA0ETLt_agdmMFY56e1Uy8m1frCDuzgPVY');
+// var Youtube = require('simple-youtube-api');
+// var youtube = new YouTube('AIzaSyA0ETLt_agdmMFY56e1Uy8m1frCDuzgPVY');
 
 
 module.exports = function(controller) {
@@ -136,20 +136,20 @@ module.exports = function(controller) {
         bot.reply(message, ronSwanson[getRandomInt(23)])
     });
 
-    // search youtube for things
-    controller.hears(['^youtube (.*)', '^Youtube (.*)'], 'direct_message,direct_mention', function(bot, message) {
-        if(message.match[1]) {
-            youtube.searchVideos(message.match[1], 4)
-                .then(results => {
-                    bot.reply(message, 'https://www.youtube.com/watch?v=' + results[0].id);
-                    // console.log(`The video's title is ${results[0].id}`);
-                })
-                .catch(console.log);
-        }
-        else {
-            bot.reply(message, 'I will find a video for you');
-        }
-    });
+    // // search youtube for things
+    // controller.hears(['^youtube (.*)', '^Youtube (.*)'], 'direct_message,direct_mention', function(bot, message) {
+    //     if(message.match[1]) {
+    //         youtube.searchVideos(message.match[1], 4)
+    //             .then(results => {
+    //                 bot.reply(message, 'https://www.youtube.com/watch?v=' + results[0].id);
+    //                 // console.log(`The video's title is ${results[0].id}`);
+    //             })
+    //             .catch(console.log);
+    //     }
+    //     else {
+    //         bot.reply(message, 'I will find a video for you');
+    //     }
+    // });
 
 
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
