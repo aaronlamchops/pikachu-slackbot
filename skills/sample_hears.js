@@ -93,12 +93,12 @@ module.exports = function(controller) {
 
     // help message
     controller.hears(['^Help', '^help', '^-help', '^--help'], 'direct_message,direct_mention', function(bot, message) {
-        bot.reply(message, 'laugh\t\t\t - ill laugh for you\n' +
-                            'question, <inser question>?\t\t\t- ill respond with yes or no gifs\n' +
-                            'What do you think of <something>\t\t\t- ill respond with my feelings using gif\'s\n' +
-                            'Cant Stop The Music\t\t\t- ill play a nice video for you...\n' + 
-                            'Ron Swanson Advice\t\t\t- ill provide advice directly from Ron Swanson himself\n' + 
-                            'uptime\t\t\t- displays how long i have been up\n');
+        bot.reply(message, '\`@Pikachu\` laugh - ill laugh for you\n' +
+                            '\`@Pikachu\` question, <question>? - ill respond with yes or no gifs\n' +
+                            '\`@Pikachu\` What do you think of <item/person/thing> - ill respond with my feelings using gif\'s\n' +
+                            '\`@Pikachu\` Cant Stop The Music - ill play a nice video for you...\n' + 
+                            '\`@Pikachu\` Ron Swanson Advice - ill provide advice directly from Ron Swanson himself\n' + 
+                            '\`@Pikachu\` uptime - displays how long i have been up\n');
     });
 
     controller.hears(['^Aaron', '^aaron'], 'direct_message,direct_mention', function(bot, message) {
