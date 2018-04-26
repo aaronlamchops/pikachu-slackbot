@@ -101,7 +101,8 @@ module.exports = function(controller) {
                             '\`@Pikachu\` What do you think of <item/person/thing> - ill respond with my feelings using gif\'s\n' +
                             '\`@Pikachu\` Cant Stop The Music - ill play a nice video for you...\n' + 
                             '\`@Pikachu\` Ron Swanson Advice - ill provide advice directly from Ron Swanson himself\n' + 
-                            '\`@Pikachu\` uptime - displays how long i have been up\n');
+                            '\`@Pikachu\` uptime - displays how long i have been up\n' +
+                            '\`@Pikachu\` youtube <phrase/thing> - ill find a youtube video of what you want. KEEP IT CLEAN!\n');
     });
 
     controller.hears(['^Aaron', '^aaron'], 'direct_message,direct_mention', function(bot, message) {
